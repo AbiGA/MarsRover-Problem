@@ -1,4 +1,4 @@
-# MarsRover-Problem
+# Solution for Mars Rover Problem
 Various Java implementations for Mars Rover problem 
 
 Mars Rover problem:
