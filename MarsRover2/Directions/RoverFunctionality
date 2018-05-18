@@ -1,0 +1,132 @@
+/*
+   RoverFunctionality.java
+   MarsRover Problem
+   Created by Abhishek on 5/18/2018.
+*/
+
+package Directions;
+
+import Rover.MarsRover;
+//import Directions.*;
+
+
+public class RoverFunctionality {
+	
+
+/*
+North n = new North();
+South s = new South();
+East e = new East();
+West w = new West();
+
+public void  move(MarsRover rover) {
+    switch(rover.getFacing()){
+    case NORTH:
+    	n.move(rover);
+    	break;
+    case EAST:
+    	e.move(rover);
+    	break;
+    case SOUTH:
+    	s.move(rover);
+    	break;
+    case WEST:
+    	w.move(rover);
+    	break;
+    default:
+    	throw new IllegalArgumentException(
+                "Please use proper format");
+    }
+}
+
+*/
+
+public void printPos(MarsRover rover) {
+    char direction = 'N';
+    switch(rover.getFacing()){
+    case NORTH:
+    	direction = 'N';
+    	break;
+    case EAST:
+    	direction = 'E';
+    	break;
+    case SOUTH:
+    	direction = 'S';
+    	break;
+    case WEST:
+    	direction = 'W';
+    	break;
+    }
+   
+    System.out.println(rover.getX()  + " "+   rover.getY() +   " " +  direction);
+}
+
+public void getMovement(MarsRover rover,String coordinates) {
+    for (int i = 0; i < coordinates.length(); i++  ) {
+        checkMovement(rover,coordinates.charAt(i));
+    }
+}
+private void checkMovement(MarsRover rover,char movement) {
+	
+	switch(rover.getFacing()){
+    default:
+    	throw new IllegalArgumentException(
+                "Please use proper format");
+    case NORTH:
+    	switch(movement){
+    	case 'L':
+        	rover.setFacing(Direction.NORTH.left());
+        	break;
+        case 'R':
+        	rover.setFacing(Direction.NORTH.right());
+        	break;
+        case 'M':
+        	rover.setY(Direction.NORTH.move(rover.getY()));
+        	break;
+    	}
+    	break;
+    case SOUTH:
+    	switch(movement){
+    	case 'L':
+    		rover.setFacing(Direction.SOUTH.left());;
+        	break;
+        case 'R':
+        	rover.setFacing(Direction.SOUTH.right());;
+        	break;
+        case 'M':
+        	rover.setY(Direction.SOUTH.move(rover.getY()));;
+        	break;
+    	}
+    	break;
+    case EAST:
+    	switch(movement){
+    	case 'L':
+    		rover.setFacing(Direction.EAST.left());;
+        	break;
+        case 'R':
+        	rover.setFacing(Direction.EAST.right());;
+        	break;
+        case 'M':
+        	rover.setX(Direction.EAST.move(rover.getX()));
+        	break;
+    	}
+    	break;
+    case WEST:
+    	switch(movement){
+    	case 'L':
+    		rover.setFacing(Direction.WEST.left());
+        	break;
+        case 'R':
+        	rover.setFacing(Direction.WEST.right());;
+        	break;
+        case 'M':
+        	rover.setX(Direction.WEST.move(rover.getX()));
+        	break;
+    	}
+    	break;
+    
+    }
+	
+}
+}
+
